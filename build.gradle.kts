@@ -2,7 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.3.3"
 	id("io.spring.dependency-management") version "1.1.6"
-	id("io.gatling.gradle") version "3.9.0"
+	id("io.gatling.gradle") version "3.9.3"
 }
 
 group = "sn.ksi"
@@ -24,7 +24,11 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	// https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5
 	testImplementation("com.intuit.karate:karate-junit5:1.4.1")
+	gatling("io.gatling:gatling-core:3.9.3")
+	gatling("io.gatling:gatling-http:3.9.3")
+	implementation("org.scala-lang:scala-library:2.13.10")
 }
+
 
 sourceSets {
 	test {
