@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.3.3"
 	id("io.spring.dependency-management") version "1.1.6"
+	id("io.gatling.gradle") version "3.9.0"
 }
 
 group = "sn.ksi"
@@ -21,8 +22,16 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	testImplementation ("org.springframework.boot:spring-boot-starter-test")
-	testImplementation ("com.intuit.karate:karate-junit5:1.4.0")
+	// https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5
+	testImplementation("com.intuit.karate:karate-junit5:1.4.1")
+}
+
+sourceSets {
+	test {
+		resources {
+			srcDir("src/test/resources")
+		}
+	}
 }
 
 tasks.withType<Test> {
